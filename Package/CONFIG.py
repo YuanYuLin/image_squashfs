@@ -43,6 +43,7 @@ def MAIN_EXTRACT(args):
     ops.pkg_mkdir(output_rootfs_dir, "tmp")
     ops.pkg_mkdir(output_rootfs_dir, "cgroup")
     ops.pkg_mkdir(output_rootfs_dir, "hdd")
+    ops.ln(output_rootfs_dir, "lib", "lib64")
 
     return True
 
