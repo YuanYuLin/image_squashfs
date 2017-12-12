@@ -20,7 +20,7 @@ def MAIN_ENV(args):
 
 def MAIN_EXTRACT(args):
     set_global(args)
-
+    '''
     ops.pkg_mkdir(output_rootfs_dir, "bin")
     ops.pkg_mkdir(output_rootfs_dir, "dev")
     ops.mknod_char(ops.path_join(output_rootfs_dir, "dev"), "console", "5", "1")
@@ -44,7 +44,7 @@ def MAIN_EXTRACT(args):
     ops.pkg_mkdir(output_rootfs_dir, "cgroup")
     ops.pkg_mkdir(output_rootfs_dir, "hdd")
     ops.ln(output_rootfs_dir, "lib", "lib64")
-
+    '''
     return True
 
 def MAIN_PATCH(args, patch_group_name):
