@@ -20,31 +20,6 @@ def MAIN_ENV(args):
 
 def MAIN_EXTRACT(args):
     set_global(args)
-    '''
-    ops.pkg_mkdir(output_rootfs_dir, "bin")
-    ops.pkg_mkdir(output_rootfs_dir, "dev")
-    ops.mknod_char(ops.path_join(output_rootfs_dir, "dev"), "console", "5", "1")
-    ops.mknod_char(ops.path_join(output_rootfs_dir, "dev"), "null", "1", "3")
-
-    ops.pkg_mkdir(output_rootfs_dir, "etc")
-    ops.pkg_mkdir(ops.path_join(output_rootfs_dir, "etc"), "network")
-    ops.pkg_mkdir(ops.path_join(output_rootfs_dir, "etc/network"), "if-pre-up.d")
-    ops.pkg_mkdir(ops.path_join(output_rootfs_dir, "etc/network"), "if-up.d")
-    ops.pkg_mkdir(ops.path_join(output_rootfs_dir, "etc/network"), "if-down.d")
-    ops.pkg_mkdir(ops.path_join(output_rootfs_dir, "etc/network"), "if-post-down.d")
-    ops.ln(ops.path_join(output_rootfs_dir, "etc"), "/tmp/resolv.conf", "resolv.conf")
-    ops.pkg_mkdir(output_rootfs_dir, "lib")
-    ops.pkg_mkdir(output_rootfs_dir, "mnt")
-    ops.pkg_mkdir(output_rootfs_dir, "root")
-    ops.pkg_mkdir(output_rootfs_dir, "sbin")
-    ops.pkg_mkdir(output_rootfs_dir, "proc")
-    ops.pkg_mkdir(output_rootfs_dir, "sys")
-    ops.pkg_mkdir(output_rootfs_dir, "var")
-    ops.pkg_mkdir(output_rootfs_dir, "tmp")
-    ops.pkg_mkdir(output_rootfs_dir, "cgroup")
-    ops.pkg_mkdir(output_rootfs_dir, "hdd")
-    ops.ln(output_rootfs_dir, "lib", "lib64")
-    '''
     return True
 
 def MAIN_PATCH(args, patch_group_name):
@@ -65,7 +40,7 @@ def MAIN_CONFIGURE(args):
 def MAIN_BUILD(args):
     set_global(args)
 
-    iopc.make_squashfs(iopc.getTargetRootfs(), output_dir)
+    iopc.make_squashfs(iopc.getTargetRootfs(), output_dir, squashfs_name)
     return False
 
 def MAIN_INSTALL(args):
