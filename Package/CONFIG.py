@@ -40,6 +40,12 @@ def MAIN_CONFIGURE(args):
 def MAIN_BUILD(args):
     set_global(args)
 
+    print 'Target RootFS:'
+    print iopc.getTargetRootfs()
+    print 'Output Dir:'
+    print output_dir
+    print 'SquashFS Name:'
+    print squashfs_name
     iopc.make_squashfs_xz(iopc.getTargetRootfs(), output_dir, squashfs_name)
     return False
 
